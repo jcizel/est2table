@@ -1,9 +1,10 @@
 Package: est2table
 Title: What the Package Does (one line, title case)
 Version: 0.0.0.9000
-Authors@R: Janko Cizel <jcizel@gmail.com> [aut, cre]
+Authors@R: as.person(c("Janko Cizel <jcizel@gmail.com> [aut, cre]"))
 Description: What the package does (one paragraph).
-Depends: R (>= 3.2.4)
+Depends:
+    R (>= 3.2.4)
 Imports:
     data.table,
     pipeR,
@@ -11,3 +12,4 @@ Imports:
     dplyr
 License: What license is it under?
 LazyData: true
+RoxygenNote: 5.0.1
