@@ -4,7 +4,6 @@ report_felm <- function(o, digits = 3){
     list.map({
       obj_name = .name
       obj = .
-
       obj %>>%
         extract_estimates(digits = digits) %>>%
         setnames(old = '.value',new = obj_name)
@@ -13,6 +12,7 @@ report_felm <- function(o, digits = 3){
   mutate(
     label_pub = .ix
   ) %>>%
+  (dt ~ dt[,c('var','order') := tstrsplit(.ix,"\\:")]) %>>%
   (dt~dt[order==2,label_pub := ""]) ->
   out_coef
 

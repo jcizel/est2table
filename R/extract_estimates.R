@@ -63,7 +63,7 @@ extract_estimates <- function(o,digits = 3,
       ) %>>%
       dplyr::select(.ix,.value)
   ) %>>%
-    do.call(what = 'interleave') ->
+    do.call(what = 'gdata::interleave') ->
     out
 
   attr(out,'raw_estimates') <- l[['test']]

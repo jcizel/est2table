@@ -1,4 +1,5 @@
 ##' @import data.table pipeR rlist
+##' @importFrom gdata interleave
 NULL
 
 
