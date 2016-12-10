@@ -10,7 +10,7 @@ report_lrm <- function(obj,digits = 3){            #obj is a list of rlm objects
         rbindlist
     }) %>>%
     Reduce(f = function(...) merge(...,by = '.ix', all.x = TRUE, all.y = TRUE)) %>>%
-    (dt~dt[,c('var','order'):=tstrsplit(.ix,split = ":")]) %>>%
+    (dt~dt[,c('var','order'):=tstrsplit(.ix,split = "|")]) %>>%
     (dt~dt[,c('var2','flevel'):=tstrsplit(var,split = "=")]) %>>%
     mutate(
       label = var2 %>>% getLabel %>>% gsub(pattern = "\n",replacement = " ")

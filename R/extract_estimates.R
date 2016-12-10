@@ -45,7 +45,7 @@ extract_estimates <- function(o,digits = 3,
   list(
     l[['test']] %>>%
       mutate(
-        .ix = sprintf('%s:1',.ix),
+        .ix = sprintf('%s|1',.ix),
         .value = sprintf("%s%s",
                          coef %>>% formatC(format = 'f', digits = digits),
                          stars)
@@ -55,7 +55,7 @@ extract_estimates <- function(o,digits = 3,
       ),
     l[['test']] %>>%
       mutate(
-        .ix = sprintf('%s:2',.ix),
+        .ix = sprintf('%s|2',.ix),
         .value = sprintf(
           "(%s)",
           se %>>% formatC(format = 'f', digits = digits)
@@ -63,7 +63,7 @@ extract_estimates <- function(o,digits = 3,
       ) %>>%
       dplyr::select(.ix,.value)
   ) %>>%
-    do.call(what = 'gdata::interleave') ->
+    do.call(what = 'interleave') ->
     out
 
   attr(out,'raw_estimates') <- l[['test']]

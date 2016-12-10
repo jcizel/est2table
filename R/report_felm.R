@@ -12,7 +12,7 @@ report_felm <- function(o, digits = 3){
   mutate(
     label_pub = .ix
   ) %>>%
-  (dt ~ dt[,c('var','order') := tstrsplit(.ix,"\\:")]) %>>%
+  (dt ~ dt[,c('var','order') := tstrsplit(.ix,"\\|")]) %>>%
   (dt~dt[order==2,label_pub := ""]) ->
   out_coef
 
